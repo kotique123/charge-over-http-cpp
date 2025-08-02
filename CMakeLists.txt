@@ -8,12 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 find_package(httplib CONFIG REQUIRED)
-
+find_package(nlohmann-json CONFIG REQUIRED)
 
 add_library(battery_lib STATIC lib/battery/battery.cpp)
 target_include_directories(battery_lib PUBLIC lib/battery/include)
 
 add_executable(charge-over-http-cpp src/main.cpp)
 
-target_link_libraries(charge-over-http-cpp PRIVATE battery_lib httplib::httplib)
+target_link_libraries(charge-over-http-cpp PRIVATE battery_lib httplib::httplib nlohmann-json)
 
