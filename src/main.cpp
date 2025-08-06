@@ -1,7 +1,7 @@
 #include "battery.hpp"
 #include <iostream>
 #include <httplib.h>
-#include "json-object.hpp"
+
 using namespace std;
 
 int main()
@@ -12,8 +12,8 @@ int main()
     {
         try
         { 
-            json battery_data = getBatteryData(BatteryAPI::getBatteryPercentage());
-            res.set_content(to_string(battery_data), "text/plain");
+            int percent = BatteryAPI::getBatteryPercentage();
+            res.set_content(to_string(percent), "text/plain");
         }
         catch (const std::exception& e)
         {
