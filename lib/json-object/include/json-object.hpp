@@ -3,5 +3,5 @@
 
 using json = nlohmann::json;
 
-json getBatteryCharge(int charge);
+json getBatteryData(int charge);
 
