@@ -1,3 +1,4 @@
 **Work in progress**
 ### Dependencies 
-`cpp-httplib`
+`cpp-httplib, nlohmann/json`
+
