@@ -1,6 +1,7 @@
 #include "json-object.hpp"
 #include <nlohmann/json.hpp>
 
+namespace JSONObject {
 json getBatteryData(int charge) 
 {
     json battery_data = 
@@ -8,4 +9,5 @@ json getBatteryData(int charge)
         {"Percent", charge}
     };
     return battery_data;
+}
 }
