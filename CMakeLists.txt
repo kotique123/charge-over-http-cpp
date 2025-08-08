@@ -38,16 +38,32 @@ add_library(json_lib STATIC lib/json-object/json-object.cpp)
 target_include_directories(json_lib PUBLIC lib/json-object/include)
 target_link_libraries(json_lib PUBLIC nlohmann_json)
 
-# Main executable
-add_executable(charge-over-http-cpp src/main.cpp)
-target_link_libraries(charge-over-http-cpp
+# Executables
+# Server
+add_executable(battery-server src/server.cpp)
+target_link_libraries(battery-server
     PRIVATE
     battery_lib
     json_lib
     httplib::httplib
 )
 if(APPLE)
-    target_link_libraries(charge-over-http-cpp
+    target_link_libraries(battery-server
+        PRIVATE
+        ${COREFOUNDATION_LIBRARY}
+        ${CORESERVICES_LIBRARY}
+    )
+endif()
+
+# Client
+add_executable(battery-client src/client.cpp)
+target_link_libraries(battery-client
+    PRIVATE
+    httplib::httplib
+    nlohmann_json
+)
+if(APPLE)
+    target_link_libraries(battery-client
         PRIVATE
         ${COREFOUNDATION_LIBRARY}
         ${CORESERVICES_LIBRARY}
