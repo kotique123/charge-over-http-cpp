@@ -3,6 +3,8 @@
 #include <httplib.h>
 #include <nlohmann/json.hpp>
 
+using namespace std;
+
 using json = nlohmann::json;
 
 int main()
@@ -42,6 +44,7 @@ int main()
     }
     else
     {
+    
         std::cerr << "Unexpected JSON format: missing integer field 'Percent'" << std::endl;
         return 1;
     }

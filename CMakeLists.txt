@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16) 
 
 project(charge-over-http-cpp VERSION 1.0.0 LANGUAGES CXX)
 
@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_TESTS "Build test executable" OFF)
+option(BUILD_INSPECT "Build inspect executable" ON) # Output binaries to bin/
 
-# Output binaries to bin/
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Dependencies
@@ -82,4 +82,12 @@ if(BUILD_TESTS)
     )
 
     add_test(NAME TestJsonCreation COMMAND test-json-creation)
+endif()
+
+if(BUILD_INSPECT)
+    add_executable(inspect tests/insepct.cpp)
+    target_link_libraries(inspect
+        PRIVATE
+        battery_lib
+    )
 endif()
