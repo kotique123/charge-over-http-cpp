@@ -10,7 +10,7 @@ int main()
    svr.Get("/battery", [](const httplib::Request &, httplib::Response &res)
    {
     res.set_content(JSONObject::getBatteryData(
-        BatteryAPI::getBatteryPercentage()).dump(), "application/json");
+        BatteryAPI::getBatteryCapacity(BatteryAPI::getBatteryInfo())).dump(), "application/json");
    });
    svr.listen("0.0.0.0", 8080);
     return 0;
