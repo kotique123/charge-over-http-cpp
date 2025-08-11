@@ -1,13 +1,17 @@
 #include "json-object.hpp"
 #include <nlohmann/json.hpp>
-
-namespace JSONObject {
-json getBatteryData(int charge) 
+#include "battery.hpp"
+namespace JSONObject
 {
-    json battery_data = 
-    {
-        {"Percent", charge}
-    };
-    return battery_data;
-}
+    const json batteryDataToJSON(const BatteryAPI::BatteryData& data) {
+        const json jsonData {
+            {"Capacity", data.Capacity},
+            {"Health", data.Health},
+            {"IsPluggedIn", data.isPluggedIn},
+            {"TimeRemaining", data.Time}
+        };
+        return jsonData;
+    }
+    
+    
 }
