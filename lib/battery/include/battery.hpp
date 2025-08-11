@@ -1,3 +1,4 @@
+// TODO: Refactor to make compatible across different systems.
 #pragma once
 #if defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>

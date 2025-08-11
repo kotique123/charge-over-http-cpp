@@ -1,3 +1,4 @@
+//
 #pragma once
 #include <nlohmann/json.hpp>
 #include "battery.hpp"

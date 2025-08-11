@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    //TODO: Port number should be configurable based on cli args.
    httplib::Server svr;
    svr.Get("/battery", [](const httplib::Request &, httplib::Response &res)
    {

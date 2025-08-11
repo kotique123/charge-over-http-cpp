@@ -1,3 +1,5 @@
+// TODO: Refactor to make compatible across different systems.
+
 #include "battery.hpp"
 #include <CoreFoundation/CFData.h>
 #include <CoreFoundation/CFDictionary.h>

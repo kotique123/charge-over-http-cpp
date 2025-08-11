@@ -20,6 +20,8 @@ void printBatteryData(const json& jsonData) {
 }
 int main()
 {
+    // TODO: Error handling, segfaults if server is not there.
+    // TODO: Add cli args for server address and port.
     httplib::Client cli("http://localhost:8080");
     const auto res = cli.Get("/battery");
     if (res->status != 200) {
