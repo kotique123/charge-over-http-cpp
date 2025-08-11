@@ -36,7 +36,7 @@ endif()
 # JSON wrapper library
 add_library(json_lib STATIC lib/json-object/json-object.cpp)
 target_include_directories(json_lib PUBLIC lib/json-object/include)
-target_link_libraries(json_lib PUBLIC nlohmann_json)
+target_link_libraries(json_lib PUBLIC battery_lib nlohmann_json)
 
 # Executables
 # Server
@@ -89,5 +89,6 @@ if(BUILD_INSPECT)
     target_link_libraries(inspect
         PRIVATE
         battery_lib
+        json_lib
     )
 endif()
