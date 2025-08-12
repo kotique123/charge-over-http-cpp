@@ -1,5 +1,3 @@
-// TODO: Refactor to make compatible across different systems.
-
 #include "battery.hpp"
 #include <CoreFoundation/CFData.h>
 #include <CoreFoundation/CFDictionary.h>
@@ -8,8 +6,11 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
+
 using namespace std;
+
 namespace BatteryAPI {
+
 #if defined(__linux__)
 int getBatteryPercentage() 
 {
@@ -23,18 +24,12 @@ int getBatteryPercentage()
     file >> percentage;
     return percentage;
 }
+
 #elif(__APPLE__)
 #include <IOkit/ps/IOPowerSources.h>
 #include <IOKit/ps/IOPSKeys.h>
 #include <CoreFoundation/CoreFoundation.h>
 
-// TODO #1: Split getBatteryPercentage into several functions:
-// 0. getBatteryInfo()
-// 1. getBatteryPercentage()
-// 2. getBatteryStatus()
-// 3. getBatteryTime()
-// 4. getBatteryHealth()
-// 5. getBatteryCycleCount()
 const CFDictionaryRef getBatteryInfo() {
     CFTypeRef blob = IOPSCopyPowerSourcesInfo();
 
@@ -125,6 +120,7 @@ void printBatteryData(const BatteryData &allData) {
     cout << allData.isPluggedIn << endl;
     cout << allData.Time << endl;
 }
+
 #elif(_WIN32)
 int getBatteryPercentage() {
     SYSTEM_POWER_STATUS sps;
