@@ -1,4 +1,16 @@
-**Work in progress**
-### Dependencies 
-`cpp-httplib, nlohmann/json`
+# charge-over-http-cpp
 
+This project allows you to get charge of your battery via a
+simple http request to a device that has a server running on
+it.
+
+## How to Install
+
+Dependencies: `httplib-cpp`, `nlohmann/json`
+
+### Compiling from source
+
+Prerequisites: CMake, C++ compiler, Git, and dependencies mentioned earlier.
+
+Make sure to set up your CMake that would detect dependencies
+for a successful build
