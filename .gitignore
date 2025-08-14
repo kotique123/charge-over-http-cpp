@@ -1,7 +1,6 @@
 build
 .vscode
 .cursorignore
-
-.clangd
-
 .cache
+.clangd
+compile_commands.json
